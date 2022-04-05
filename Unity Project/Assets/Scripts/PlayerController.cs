@@ -7,7 +7,8 @@ namespace FirstProject
     [RequireComponent(typeof(Rigidbody))]
     public class PlayerController : MonoBehaviour
     {   
-        public static PlayerController Instance { get; private set; }
+        public static PlayerController Instance { get => _instance ? _instance : throw new System.NullReferenceException("There is no PlayerController instance."); private set => _instance = value; }
+        private static PlayerController _instance;
         public Rigidbody Rigidbody { get; private set; }
         public CharBody CharBody { get; private set; }
         private Vector3 movementVector;
@@ -33,7 +34,7 @@ namespace FirstProject
         }
         private void MovePlayer()
         {
-            //Rigidbody.MovePosition(UnityEngine.Rigidbody.position + movementVector * CharBody.MovementSpeed * Time.fixedDeltaTime);
+            Rigidbody.MovePosition(Rigidbody.position + movementVector * CharBody.MovementSpeed * Time.fixedDeltaTime);
         }
         private void OnMove(InputAction.CallbackContext cbContext)
         {
