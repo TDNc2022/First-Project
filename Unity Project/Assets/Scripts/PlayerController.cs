@@ -4,41 +4,54 @@ using UnityEngine.InputSystem;
 namespace FirstProject
 {
     [RequireComponent(typeof(CharBody))]
-    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(CharacterController))]
     public class PlayerController : MonoBehaviour
     {   
-        public static PlayerController Instance { get => _instance ? _instance : throw new System.NullReferenceException("There is no PlayerController instance."); private set => _instance = value; }
-        private static PlayerController _instance;
-        public Rigidbody Rigidbody { get; private set; }
+        public static PlayerController Instance { get; private set; }
         public CharBody CharBody { get; private set; }
+
+        public CharacterController characterController;
+        public float rotationSmoothness;
+        private float _smoothVelocity;
         private Vector3 movementVector;
 
         private void Awake()
         {
-            if(Instance)
+            if (Instance != null && Instance != this)
             {
-                Debug.LogError($"Cannot have more than 1 instance of {nameof(PlayerController)}");
-                Destroy(gameObject);
+                Destroy(this);
+                throw new System.Exception("An instance of this singleton already exists.");
             }
-            Instance = this;
+            else
+            {
+                Instance = this;
+            }
         }
 
         private void Start()
         {
-            Rigidbody = GetComponent<Rigidbody>();
             CharBody = GetComponent<CharBody>();
         }
-        private void FixedUpdate()
+        private void Update()
         {
             MovePlayer();
         }
         private void MovePlayer()
         {
-            Rigidbody.MovePosition(Rigidbody.position + movementVector * CharBody.MovementSpeed * Time.fixedDeltaTime);
+            float targetAngle = Mathf.Atan2(movementVector.x, movementVector.z) * Mathf.Rad2Deg;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _smoothVelocity, rotationSmoothness);
+            transform.rotation = Quaternion.Euler(0, targetAngle, 0);
+            characterController.Move(movementVector * CharBody.MovementSpeed * Time.deltaTime);
         }
         private void OnMove(InputAction.CallbackContext cbContext)
         {
-            movementVector = cbContext.ReadValue<Vector2>();
+            Vector2 vector = cbContext.ReadValue<Vector2>();
+            movementVector = new Vector3(vector.x, 0, vector.y).normalized;
+        }
+
+        private void OnDestroy()
+        {
+            Instance = null;
         }
     }
 }
