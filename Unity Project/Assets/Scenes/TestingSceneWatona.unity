@@ -495,4 +495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c7642d0a84dfc4a8dcbc26838b6bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 504003970857130910, guid: cea37cb12aaaca4419f540bae0a1a624, type: 3}
   spTarget: {x: 0, y: 0, z: 0}
+  timer: 0
