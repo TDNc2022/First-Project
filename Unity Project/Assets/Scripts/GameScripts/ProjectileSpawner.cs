@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawn_Proiyectil : MonoBehaviour
+public class ProjectileSpawner : MonoBehaviour
 {
     public GameObject spawnPrefab;
     public float count = 0f;
@@ -23,7 +23,5 @@ public class Spawn_Proiyectil : MonoBehaviour
             Instantiate(spawnPrefab, transform.position, transform.rotation);
             count = 0f;
         }
-     
-
     }
 }
