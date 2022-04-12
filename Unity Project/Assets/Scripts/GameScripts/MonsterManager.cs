@@ -8,7 +8,7 @@ namespace FirstProject
     {
         public GameObject enemyPrefab;
         GameObject freshEnemy;
-        public Vector3 playerPos;
+        public Transform playerPos;
 
         public float timer;
         // Start is called before the first frame update
@@ -35,7 +35,7 @@ namespace FirstProject
             }
         }
         public void LockTarget(){
-            playerPos = PlayerController.Instance.transform.position; //a
+            playerPos = PlayerController.Instance.transform; //a
         }
     }
 }
