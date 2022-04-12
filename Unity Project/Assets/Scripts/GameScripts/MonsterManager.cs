@@ -8,23 +8,24 @@ namespace FirstProject
     {
         public GameObject enemyPrefab;
         GameObject freshEnemy;
-        public Vector3 spTarget;
+        public Vector3 playerPos;
 
         public float timer;
         // Start is called before the first frame update
         void Start()
         {
             timer = 1;
-            spTarget = PlayerController.Instance.transform.position;
         }
         // Update is called once per frame
         void Update()
         {
+            LockTarget();
             Timer();
         }
         public void Spawn(){
             
             freshEnemy = Instantiate(enemyPrefab,transform.position,transform.rotation);
+            freshEnemy.GetComponent<IA_Enemy>().target = playerPos;
         }
         public void Timer(){
             timer -= Time.deltaTime;
@@ -32,6 +33,9 @@ namespace FirstProject
                 Spawn();
                 timer = 10;
             }
+        }
+        public void LockTarget(){
+            playerPos = PlayerController.Instance.transform.position;
         }
     }
 }
