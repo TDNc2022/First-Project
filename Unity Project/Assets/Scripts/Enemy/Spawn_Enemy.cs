@@ -35,7 +35,7 @@ public class Spawn_Enemy : MonoBehaviour
             }
         }
         public void LockTarget(){
-            playerPos = PlayerController.Instance.transform.position;
+            playerPos = PlayerController.Instance.transform.position; //a
         }
     }
 }
