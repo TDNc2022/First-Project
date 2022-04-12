@@ -13,7 +13,7 @@ namespace FirstProject
         {
             public string name;
             public float pickChance;
-            public GameObject[] dropPrefabs;
+            public PickupDef[] pickupDrops;
         }
 
         public Category[] dropCategories;

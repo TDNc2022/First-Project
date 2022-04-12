@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8132193c55885e4449db1055e35279a1, type: 3}
   m_Name: new EnemyDropPool
   m_EditorClassIdentifier: 
-  dropCategories: []
+  dropCategories:
+  - name: Resources
+    pickChance: 30
+    pickupDrops: []
