@@ -35,7 +35,7 @@ namespace FirstProject
             }
         }
         public void LockTarget(){
-            playerPos = PlayerController.Instance.transform.position;
+            playerPos = PlayerController.Instance.transform.position; //a
         }
     }
 }
