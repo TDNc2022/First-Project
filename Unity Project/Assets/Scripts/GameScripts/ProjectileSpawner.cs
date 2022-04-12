@@ -2,26 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileSpawner : MonoBehaviour
+
+
+namespace FirstProject
 {
-    public GameObject spawnPrefab;
-    public float count = 0f;
-
-    // Start is called before the first frame update
-    void Start()
+    public class ProjectileSpawner : MonoBehaviour
     {
+        public GameObject spawnPrefab;
+        public float count = 0f;
+        public bool startShoot;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        count += Time.deltaTime;
-
-        if (count >= 2f)
+        // Start is called before the first frame update
+        void Start()
         {
-            Instantiate(spawnPrefab, transform.position, transform.rotation);
-            count = 0f;
+
         }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if(startShoot == true)
+            {
+                count += Time.deltaTime;
+
+                if (count >= 2f)
+                {
+                    Instantiate(spawnPrefab, transform.position, transform.rotation);
+                    count = 0f;
+                }
+
+            }
+            else
+            {
+                count = 0f;
+            }
+
+        }
+
     }
+
 }

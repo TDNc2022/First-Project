@@ -7,6 +7,9 @@ namespace FirstProject
     public class TurretMovement : MonoBehaviour
     {
         public Transform target;
+
+        public ProjectileSpawner projectileSpawner;
+
    
 
         // Start is called before the first frame update
@@ -29,11 +32,27 @@ namespace FirstProject
         {
             Vector3 Mira = target.position - transform.position;
             Debug.DrawRay(transform.position, Mira, Color.blue);
-            if (other.tag == "Enemigo")
+
+            if (other.tag == "Enemy")
             {
+
                 Quaternion rotacionTarget = Quaternion.LookRotation(Mira);
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotacionTarget, Time.deltaTime);
+                projectileSpawner.startShoot = true;
+                
             }
+
+
         }
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.tag == "Enemy")
+            {
+                projectileSpawner.startShoot = false;
+            }
+
+        }
+
+
     }
 }
