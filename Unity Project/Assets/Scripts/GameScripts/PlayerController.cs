@@ -5,9 +5,8 @@ namespace FirstProject
 {
     [RequireComponent(typeof(CharBody))]
     [RequireComponent(typeof(CharacterController))]
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : SingletonBehaviour<PlayerController>
     {   
-        public static PlayerController Instance { get; private set; }
         public CharBody CharBody { get; private set; }
 
         public CharacterController characterController;
@@ -17,27 +16,16 @@ namespace FirstProject
         private float currentYVelocity;
         private Vector3 movementVector;
 
-        private void Awake()
-        {
-            if (Instance != null && Instance != this)
-            {
-                Destroy(this);
-                throw new System.Exception("An instance of this singleton already exists.");
-            }
-            else
-            {
-                Instance = this;
-            }
-        }
-
         private void Start()
         {
             CharBody = GetComponent<CharBody>();
         }
+
         private void Update()
         {
             MovePlayer();
         }
+
         private void MovePlayer()
         {
             float targetAngle = Mathf.Atan2(movementVector.x, movementVector.z) * Mathf.Rad2Deg;
@@ -59,11 +47,6 @@ namespace FirstProject
         {
             Vector2 vector = cbContext.ReadValue<Vector2>();
             movementVector = new Vector3(vector.x, 0, vector.y).normalized;
-        }
-
-        private void OnDestroy()
-        {
-            Instance = null;
         }
     }
 }
