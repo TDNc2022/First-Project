@@ -9,8 +9,7 @@ namespace FirstProject
         public Transform target;
 
         public ProjectileSpawner projectileSpawner;
-
-   
+        public Transform rotatingObj; 
 
         // Start is called before the first frame update
         void Start()
@@ -22,22 +21,17 @@ namespace FirstProject
         void Update()
         {
 
-
-
-
-
-      
         }
         private void OnTriggerStay(Collider other)
         {
-            Vector3 Mira = target.position - transform.position;
-            Debug.DrawRay(transform.position, Mira, Color.blue);
+
+            target = other.transform;
 
             if (other.tag == "Enemy")
             {
-
-                Quaternion rotacionTarget = Quaternion.LookRotation(Mira);
-                transform.rotation = Quaternion.Slerp(transform.rotation, rotacionTarget, Time.deltaTime);
+                Vector3 Mira = target.transform.position - transform.position;
+                Debug.DrawRay(rotatingObj.position, Mira, Color.blue);
+                rotatingObj.LookAt(other.transform, Vector3.up);
                 projectileSpawner.startShoot = true;
                 
             }
