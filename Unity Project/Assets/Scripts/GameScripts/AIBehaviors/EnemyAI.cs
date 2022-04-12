@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FirstProject{
-public class IA_Enemy : MonoBehaviour
+namespace FirstProject.AIBehaviors
+{
+    public class EnemyAI : MonoBehaviour
     {
         public Vector3 target;
         // Start is called before the first frame update
@@ -17,6 +18,5 @@ public class IA_Enemy : MonoBehaviour
         {
             target = PlayerController.Instance.transform.position;
         }
-
     }
 }

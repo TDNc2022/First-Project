@@ -8,7 +8,7 @@ namespace FirstProject
         public static Action OnUpdate;
         public static Action OnFixedUpdate;
         public static Action OnLateUpdate;
-
+        public const float Gravity = 9.81f;
         private void Update()
         {
             OnUpdate?.Invoke();

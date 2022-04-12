@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FirstProject{
-
-public class Spawn_Enemy : MonoBehaviour
+namespace FirstProject
 {
+    public class MonsterManager : MonoBehaviour
+    {
         public GameObject enemyPrefab;
         GameObject freshEnemy;
         public Vector3 spTarget;

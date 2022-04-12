@@ -7,6 +7,8 @@ namespace FirstProject
     public class CharBody : MonoBehaviour
     {
         public float baseMovementSpeed;
+        public float baseJumpStrength;
+        public float baseJumpAmount;
         public float baseMaxHealth;
         public float baseDamage;
         public float baseAttackSpeed;
@@ -15,6 +17,7 @@ namespace FirstProject
         public float MaxHealth { get; private set; }
         public float Damage { get; private set; }
         public float AttackSpeed { get; private set; }
+
         [HideInInspector]
         public bool statsDirty;
         void Start()
