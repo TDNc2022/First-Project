@@ -9,7 +9,6 @@ namespace FirstProject
         public GameObject enemyPrefab;
         GameObject freshEnemy;
         public Transform playerPos;
-
         public float timer;
         // Start is called before the first frame update
         void Start()
