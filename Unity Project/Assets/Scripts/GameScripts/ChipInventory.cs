@@ -12,6 +12,7 @@ namespace FirstProject
         
         public int maxChipCredits;
         public int CurrentSpentChipCredits { get; private set; }
+        public CharBody CharBody { get; private set; }
 
         public void AddNewChip(ChipDefinition chip)
         {
@@ -42,6 +43,7 @@ namespace FirstProject
                 num += def.cost;
             }
             CurrentSpentChipCredits = num;
+            CharBody.statsDirty = true;
         }
 
     }

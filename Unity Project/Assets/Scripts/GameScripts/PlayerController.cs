@@ -1,15 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Nebby.UnityUtils;
 
 namespace FirstProject
 {
     [RequireComponent(typeof(CharBody))]
     [RequireComponent(typeof(CharacterController))]
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : SingletonBehaviour<PlayerController>
     {   
-        public static PlayerController Instance { get; private set; }
         public CharBody CharBody { get; private set; }
-
+        public PlayerInventory PlayerInventory { get; private set; }
         public CharacterController characterController;
         public float rotationSmoothness;
         private float _smoothVelocity;
@@ -18,22 +18,10 @@ namespace FirstProject
         private Vector3 movementVector;
         public bool isMoving;
 
-        private void Awake()
-        {
-            if (Instance != null && Instance != this)
-            {
-                Destroy(this);
-                throw new System.Exception("An instance of this singleton already exists.");
-            }
-            else
-            {
-                Instance = this;
-            }
-        }
-
         private void Start()
         {
             CharBody = GetComponent<CharBody>();
+            PlayerInventory = GetComponent<PlayerInventory>();
         }
         private void Update()
         {

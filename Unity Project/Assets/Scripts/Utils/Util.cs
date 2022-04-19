@@ -1,4 +1,4 @@
-namespace NebbyUtils
+namespace Nebby.CSharpUtils
 {
     public static class Util
     {

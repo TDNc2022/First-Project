@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 5496952421810549247}
   - component: {fileID: 1347963915962914259}
   - component: {fileID: 3886376624839432186}
-  - component: {fileID: -5561793882466564374}
+  - component: {fileID: 440948184729102324}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -416,7 +416,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: -0.25, z: 0}
---- !u!114 &-5561793882466564374
+--- !u!114 &440948184729102324
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -425,8 +425,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4603632015255998743}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7361b3d8d686134e8baebecbfc46195, type: 3}
+  m_Script: {fileID: 11500000, guid: a040e8f5e65000b43b8364dcecb15a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chips: []
-  maxChips: 0
+  heldChips: []
