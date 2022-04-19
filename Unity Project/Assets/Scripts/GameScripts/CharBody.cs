@@ -6,6 +6,7 @@ namespace FirstProject
 {
     public class CharBody : MonoBehaviour
     {
+        public GameObject chipPrefab;
         public float baseMovementSpeed;
         public float baseMaxHealth;
         public float baseDamage;
@@ -15,6 +16,7 @@ namespace FirstProject
         public float MaxHealth { get; private set; }
         public float Damage { get; private set; }
         public float AttackSpeed { get; private set; }
+        public float CurrentHealth { get; private set; }
 
         public ChipInventory ChipInventory { get; private set; }
 
@@ -54,5 +56,25 @@ namespace FirstProject
                 CalculateStats();
             }
         }
+        public void TakeDamage(float dmg)
+        {
+            CurrentHealth -= dmg;
+            if (CurrentHealth <=0)
+                Death();
+        }
+        public void Death()
+        {
+            if (this.tag == "Enemy")
+            {
+                Instantiate(chipPrefab, this.transform.position, Quaternion.identity);
+            }
+            Destroy(this.gameObject);
+        }
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Bullet")
+                TakeDamage(other.GetComponent<ProjectileBehaviour>().damage);
+        }
+
     }
 }

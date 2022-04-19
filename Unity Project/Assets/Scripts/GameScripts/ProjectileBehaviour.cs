@@ -4,12 +4,10 @@ using UnityEngine;
 
 namespace FirstProject
 {
-    public class ProjectileMovement : MonoBehaviour
+    public class ProjectileBehaviour : MonoBehaviour
     {
-
+        public float damage {get; set;}
         public float speed = 5f;
-
-
         // Start is called before the first frame update
         void Start()
         {
@@ -22,13 +20,13 @@ namespace FirstProject
             transform.position += transform.forward * speed * Time.deltaTime;
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if(other.tag == "Enemy")
-            {
-                Destroy(this.gameObject);
-            }
-        }
+        // private void OnTriggerEnter(Collider other)
+        // {
+        //     if(other.tag == "Enemy")
+        //     {
+        //         Destroy(this.gameObject);
+        //     }
+        // }
 
 
 

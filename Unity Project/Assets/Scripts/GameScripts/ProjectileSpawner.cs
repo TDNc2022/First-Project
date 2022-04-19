@@ -30,15 +30,11 @@ namespace FirstProject
                     Instantiate(spawnPrefab, transform.position, transform.rotation);
                     count = 0f;
                 }
-
             }
             else
             {
                 count = 0f;
             }
-
         }
-
     }
-
 }
