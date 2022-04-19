@@ -8,7 +8,7 @@ namespace FirstProject
 {
     public class ChipInventory : MonoBehaviour
     {
-        public List<ChipDefinition> chips;
+        public List<ChipDefinition> chips = new List<ChipDefinition>();
         
         public int maxChipCredits;
         public int CurrentSpentChipCredits { get; private set; }

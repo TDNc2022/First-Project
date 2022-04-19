@@ -24,6 +24,7 @@ namespace FirstProject
         public bool statsDirty;
         void Start()
         {
+            ChipInventory = GetComponent<ChipInventory>();
             CalculateStats();
         }
 
@@ -34,12 +35,15 @@ namespace FirstProject
             float damage = baseDamage;
             float atkSpeed = baseAttackSpeed;
 
-            foreach(ChipDefinition chipDef in ChipInventory.chips)
+            if(ChipInventory)
             {
-                moveSpeed = chipDef.movementSpeedModifier.GetModifiedStat(moveSpeed);
-                health = chipDef.hpModifier.GetModifiedStat(health);
-                damage = chipDef.damageModifier.GetModifiedStat(damage);
-                atkSpeed = chipDef.attackSpeedModifier.GetModifiedStat(atkSpeed);
+                foreach(ChipDefinition chipDef in ChipInventory.chips)
+                {
+                    moveSpeed = chipDef.movementSpeedModifier.GetModifiedStat(moveSpeed);
+                    health = chipDef.hpModifier.GetModifiedStat(health);
+                    damage = chipDef.damageModifier.GetModifiedStat(damage);
+                    atkSpeed = chipDef.attackSpeedModifier.GetModifiedStat(atkSpeed);
+                }
             }
 
             MovementSpeed = moveSpeed;
