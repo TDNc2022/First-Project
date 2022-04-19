@@ -7,8 +7,6 @@ namespace FirstProject
     public class CharBody : MonoBehaviour
     {
         public float baseMovementSpeed;
-        public float baseJumpStrength;
-        public float baseJumpAmount;
         public float baseMaxHealth;
         public float baseDamage;
         public float baseAttackSpeed;
@@ -17,6 +15,8 @@ namespace FirstProject
         public float MaxHealth { get; private set; }
         public float Damage { get; private set; }
         public float AttackSpeed { get; private set; }
+
+        public ChipInventory ChipInventory { get; private set; }
 
         [HideInInspector]
         public bool statsDirty;
@@ -27,10 +27,23 @@ namespace FirstProject
 
         private void CalculateStats()
         {
-            MovementSpeed = baseMovementSpeed;
-            MaxHealth = baseMaxHealth;
-            Damage = baseDamage;
-            AttackSpeed = baseAttackSpeed;
+            float moveSpeed = baseMovementSpeed;
+            float health = baseMaxHealth;
+            float damage = baseDamage;
+            float atkSpeed = baseAttackSpeed;
+
+            foreach(ChipDefinition chipDef in ChipInventory.chips)
+            {
+                moveSpeed = chipDef.movementSpeedModifier.GetModifiedStat(moveSpeed);
+                health = chipDef.hpModifier.GetModifiedStat(health);
+                damage = chipDef.damageModifier.GetModifiedStat(damage);
+                atkSpeed = chipDef.attackSpeedModifier.GetModifiedStat(atkSpeed);
+            }
+
+            MovementSpeed = moveSpeed;
+            MaxHealth = health;
+            Damage = damage;
+            AttackSpeed = atkSpeed;
         }
         // Update is called once per frame
         void Update()
