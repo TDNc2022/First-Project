@@ -15,6 +15,7 @@ namespace FirstProject
         public float MaxHealth { get; private set; }
         public float Damage { get; private set; }
         public float AttackSpeed { get; private set; }
+        public float CurrentHealth { get; private set; }
 
         public ChipInventory ChipInventory { get; private set; }
 

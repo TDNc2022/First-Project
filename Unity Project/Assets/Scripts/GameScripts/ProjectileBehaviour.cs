@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace FirstProject
 {
-    public class ProjectileMovement : MonoBehaviour
+    public class ProjectileBehaviour : MonoBehaviour
     {
 
         public float speed = 5f;
-
+        public float damage;
 
         // Start is called before the first frame update
         void Start()
