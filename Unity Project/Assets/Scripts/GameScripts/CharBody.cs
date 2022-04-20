@@ -6,6 +6,7 @@ namespace FirstProject
 {
     public class CharBody : MonoBehaviour
     {
+        public GameObject chipPrefab;
         public float baseMovementSpeed;
         public float baseMaxHealth;
         public float baseDamage;
