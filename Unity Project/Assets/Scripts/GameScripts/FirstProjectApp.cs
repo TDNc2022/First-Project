@@ -1,10 +1,9 @@
 using UnityEngine;
 using System;
-using Nebby.UnityUtils;
 
 namespace FirstProject
 {
-    public class FirstProjectApp : SingletonBehaviour<FirstProjectApp>
+    public class FirstProjectApp : MonoBehaviour
     {
         public static Action OnUpdate;
         public static Action OnFixedUpdate;

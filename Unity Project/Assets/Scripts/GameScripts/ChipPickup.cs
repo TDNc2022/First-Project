@@ -43,7 +43,6 @@ namespace FirstProject
             if(rootObj.CompareTag("Player"))
             {
                 PlayerController.Instance.PlayerInventory.AddChip(TiedChip);
-                Destroy(gameObject);
             }
         }
     }

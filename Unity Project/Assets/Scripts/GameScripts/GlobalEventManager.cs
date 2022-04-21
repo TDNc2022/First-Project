@@ -13,7 +13,7 @@ namespace FirstProject
         {
             if(deadBody.CompareTag("Enemy"))
             {
-                SpawnChip(droppableChips.GetRandomElement(), deadBody.transform, new Vector3(Random.Range(0, 1), 3, Random.Range(0, 1)));
+                SpawnChip(droppableChips.GetRandomElement(), deadBody.transform, new Vector3(Random.Range(0, 2), 4, Random.Range(0, 2)));
             }
         }
 
