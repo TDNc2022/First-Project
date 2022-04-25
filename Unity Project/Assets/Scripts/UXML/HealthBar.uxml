@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="/Assets/Scripts/USS/HealthBar.uss" />
+    <ui:VisualElement name="Background" class="HealthBar--background" style="height: 100%; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-top-color: rgba(170, 243, 117, 255); border-left-width: 1px; border-right-width: 1px; border-top-width: 3px; border-bottom-width: 1px;">
+        <ui:VisualElement name="Overlay" class="progressBar--overlay HealthBar--overlay" style="height: 100%; background-color: rgba(91, 168, 71, 255);" />
+        <ui:VisualElement name="info-container" style="position: absolute; align-items: center; flex-grow: 0; flex-shrink: 1; width: 100%; height: 100%; justify-content: center;">
+            <ui:Label text="50 / 100" display-tooltip-when-elided="true" name="info-display" style="top: auto; position: relative; left: auto; width: auto; height: auto; max-height: 30px; min-height: 10px; font-size: 18px; -unity-text-align: middle-center; -unity-font-style: bold; -unity-font: url(&apos;Library/unity default resources&apos;); color: rgba(255, 255, 255, 255);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
