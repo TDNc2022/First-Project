@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Template name="HealthBar" />
+    <Style src="/Assets/Scripts/USS/HealthBar.uss" />
+    <ui:VisualElement name="hp-container" style="align-items: auto; flex-direction: row; position: absolute; bottom: 34px; right: auto; top: auto; left: 29px; width: 447px; height: 36px; justify-content: flex-start; flex-wrap: nowrap;">
+        <ui:Instance template="HealthBar" name="HealthBar" style="width: 100%; height: 100%; align-items: stretch;" />
+    </ui:VisualElement>
+</ui:UXML>

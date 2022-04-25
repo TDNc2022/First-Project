@@ -50,6 +50,7 @@ namespace FirstProject
             MaxHealth = health;
             Damage = damage;
             AttackSpeed = atkSpeed;
+            CurrentHealth = health;
         }
         // Update is called once per frame
         void Update()
