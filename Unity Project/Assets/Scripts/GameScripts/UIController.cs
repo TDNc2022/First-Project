@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
-namespace UnityEngine.UIElements
+namespace FirstProject
 {
     public class UIController : MonoBehaviour
     {
@@ -29,15 +28,16 @@ namespace UnityEngine.UIElements
             SceneManager.LoadScene("game");
         }
         void ButtonPressed(){
-            if (isText == false)
-            {
-            textMessage.text = "Aguante el Colo!";
-            textMessage.style.display = DisplayStyle.Flex;
-            isText = true;
-            return;
-            }
-            textMessage.style.display = DisplayStyle.None;
-            isText = false;
+            // if (isText == false)
+            // {
+            // textMessage.text = "Aguante el Colo!";
+            // textMessage.style.display = DisplayStyle.Flex;
+            // isText = true;
+            // return;
+            // }
+            // textMessage.style.display = DisplayStyle.None;
+            // isText = false;
+            Difficulty _selectedDifficulty = FirstProjectApp.Instance.selectedDifficulty;
         }
     }
 }
