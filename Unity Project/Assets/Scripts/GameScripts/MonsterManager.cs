@@ -28,7 +28,8 @@ namespace FirstProject
         }
         public void Timer(){
             timer -= Time.deltaTime;
-            if(timer <= 0){
+            if(timer <= 0)
+            {
                 Spawn();
                 timer = 10;
             }

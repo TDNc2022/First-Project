@@ -29,9 +29,6 @@ namespace FirstProject
             NavA.destination = target.position;
             NavA.stoppingDistance = 2f;
         }
-        void EnemyRotation(){
-            transform.LookAt(target,Vector3.up);
-        }
         void EnemyAttack(){
 
         }
