@@ -13,13 +13,16 @@ namespace FirstProject
         {
             if(deadBody.CompareTag("Enemy"))
             {
-                SpawnChip(droppableChips.GetRandomElement(), deadBody.transform, new Vector3(Random.Range(0, 2), 4, Random.Range(0, 2)));
-
-                var currentEnemies = WaveManager.Instance.currentEnemies;
-                var rootGO = deadBody.gameObject.GetRootGameObject();
-                if(currentEnemies.Contains(rootGO))
+                if(droppableChips.TryGetRandomElement(out var chipDef))
                 {
-                    currentEnemies.Remove(rootGO);
+                    SpawnChip(chipDef, deadBody.transform, new Vector3(Random.Range(0, 2), 4, Random.Range(0, 2)));
+
+                    var currentEnemies = WaveManager.Instance.currentEnemies;
+                    var rootGO = deadBody.gameObject.GetRootGameObject();
+                    if(currentEnemies.Contains(rootGO))
+                    {
+                        currentEnemies.Remove(rootGO);
+                    }
                 }
             }
         }

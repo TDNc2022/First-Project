@@ -7,11 +7,18 @@ namespace Nebby.CSharpUtils
 {
     public static class ListExtensions
     {
-        public static T GetRandomElement<T>(this IEnumerable<T> enumerable)
+        public static bool TryGetRandomElement<T>(this IEnumerable<T> enumerable, out T element)
         {
             T[] enumAsArray = enumerable.ToArray();
+            if (enumAsArray.Length == 0)
+            {
+                element = default(T);
+                return false;
+            }
+
             int rand = Random.Range(0, enumAsArray.Length);
-            return enumAsArray[rand];
+            element = enumAsArray[rand];
+            return true;
         }
     }
 }

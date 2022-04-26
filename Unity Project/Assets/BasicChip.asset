@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e2d34baf15a3414ca165a5cc10f33d8, type: 3}
+  m_Name: BasicChip
+  m_EditorClassIdentifier: 
+  chipName: Basic Chip
+  chipDescription: 
+  cost: 2
+  displayPrefab: {fileID: 1239171515044937199, guid: 85d9e419320d5a943ab0cfb9d7515331, type: 3}
+  hpModifier:
+    amount: 10
+    statIncreaseType: 1
+  damageModifier:
+    amount: 1.5
+    statIncreaseType: 0
+  attackSpeedModifier:
+    amount: 1.1
+    statIncreaseType: 0
+  movementSpeedModifier:
+    amount: 1.2
+    statIncreaseType: 0

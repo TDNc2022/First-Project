@@ -360,6 +360,8 @@ GameObject:
   - component: {fileID: 615209557750227899}
   - component: {fileID: 615209557750227780}
   - component: {fileID: 615209557750227898}
+  - component: {fileID: 1816529403379874314}
+  - component: {fileID: 917651530}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -414,9 +416,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6d67889eb4b2049af3b339db42f7f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chipPrefab: {fileID: 0}
   baseMovementSpeed: 0
   baseMaxHealth: 5
   baseDamage: 1
   baseAttackSpeed: 1
+  hasInvul: 0
+  invulTimer: 0
   statsDirty: 0
+--- !u!114 &1816529403379874314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615209557750227781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7361b3d8d686134e8baebecbfc46195, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chips: []
+  maxChipCredits: 10
+--- !u!135 &917651530
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615209557750227781}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.02
+  m_Center: {x: 0, y: 0, z: 0}

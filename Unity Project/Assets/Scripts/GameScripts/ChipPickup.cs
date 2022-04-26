@@ -39,10 +39,10 @@ namespace FirstProject
         private void OnCollisionEnter(Collision collision)
         {
             GameObject rootObj = collision.gameObject.GetRootGameObject();
-            Debug.Log(rootObj);
             if(rootObj.CompareTag("Player"))
             {
                 PlayerController.Instance.PlayerInventory.AddChip(TiedChip);
+                Destroy(gameObject.GetRootGameObject());
             }
         }
     }

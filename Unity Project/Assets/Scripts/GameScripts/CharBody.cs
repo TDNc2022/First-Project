@@ -6,7 +6,6 @@ namespace FirstProject
 {
     public class CharBody : MonoBehaviour
     {
-        public GameObject chipPrefab;
         public float baseMovementSpeed;
         public float baseMaxHealth;
         public float baseDamage;
@@ -55,6 +54,13 @@ namespace FirstProject
             Damage = damage;
             AttackSpeed = atkSpeed;
             CurrentHealth = health;
+
+            Debug.Log($"Stats for {gameObject}:" +
+                $"\nMovementSpeed = {MovementSpeed}" +
+                $"\nMaxHealth = {MaxHealth}" +
+                $"\nDamage = {Damage}" +
+                $"\nAttackSpeed = {AttackSpeed}" +
+                $"\nCurrentHealth {CurrentHealth}");
         }
         // Update is called once per frame
         void Update()
