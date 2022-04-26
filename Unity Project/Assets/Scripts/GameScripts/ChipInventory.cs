@@ -14,17 +14,22 @@ namespace FirstProject
         public int CurrentSpentChipCredits { get; private set; }
         public CharBody CharBody { get; private set; }
 
-        public void AddNewChip(ChipDefinition chip)
+        public void Awake()
         {
-            if (chips.Contains(chip))
-                return;
+            CharBody = GetComponent<CharBody>();
+        }
+        public bool AddNewChip(ChipDefinition chip)
+        {
+            /*if (chips.Contains(chip))
+                return false;*/
 
             int creditsAfterAddition = CurrentSpentChipCredits + chip.cost;
             if (creditsAfterAddition > maxChipCredits)
-                return;
+                return false;
 
             chips.Add(chip);
             OnChipInventoryChanged();
+            return true;
         }
 
         public void RemoveChip(ChipDefinition chip)

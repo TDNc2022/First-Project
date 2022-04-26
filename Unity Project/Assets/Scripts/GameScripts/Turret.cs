@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Nebby.UnityUtils;
+using Nebby.CSharpUtils;
+
 namespace FirstProject{
     public class Turret : MonoBehaviour
     {
@@ -75,6 +78,36 @@ namespace FirstProject{
                 Quaternion lookRotation = Quaternion.LookRotation(dir);
                 Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
                 partToRotate.rotation = Quaternion.Euler(rotation.x, rotation.y , 0f);
+            }
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                PlayerInventory playerInventory = PlayerController.Instance.PlayerInventory;
+                if (playerInventory)
+                    TryGiveChip(playerInventory);
+            }
+        }
+
+        private void TryGiveChip(PlayerInventory pInventory)
+        {
+            ChipInventory inventory = _charBody.ChipInventory;
+
+            if(inventory)
+            {
+                if(pInventory.heldChips.TryGetRandomElement(out var chipCount))
+                {
+                    if(chipCount != null)
+                    {
+                        ChipDefinition definition = chipCount.chip;
+                        if(inventory.AddNewChip(definition))
+                        {
+                            pInventory.RemoveChip(definition);
+                        }
+                    }
+                }
             }
         }
         void Shoot()
