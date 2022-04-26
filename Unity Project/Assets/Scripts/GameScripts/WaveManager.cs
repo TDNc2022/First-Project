@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Nebby.UnityUtils;
 namespace FirstProject{
-    public class WaveManager : MonoBehaviour
+    public class WaveManager : SingletonBehaviour<WaveManager>
     {
         public enum SpawnState {spawning, waiting, counting };
         [System.Serializable]
@@ -18,7 +19,7 @@ namespace FirstProject{
         private int nextWave = 0;
 
         public Transform[] spawnPoints;
-        public GameObject[] currentEnemies;
+        public List<GameObject> currentEnemies;
         public float timeBetweenWaves = 5f;
         public float waveCountdown;
 
@@ -113,6 +114,8 @@ namespace FirstProject{
             Transform newEnemy = Instantiate(_enemy, _sp.position, _sp.rotation);
             newEnemy.GetComponent<IA_Enemy>().target = _target;
             Debug.Log("Spawning Enemy: " + _enemy.name);
+
+            currentEnemies.Add(newEnemy.gameObject);
         }
     }
 }

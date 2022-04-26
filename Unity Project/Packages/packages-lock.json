@@ -60,11 +60,13 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.probuilder": {
-      "version": "4.5.2",
+      "version": "5.0.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.settings-manager": "1.0.3"
+        "com.unity.settings-manager": "1.0.3",
+        "com.unity.modules.physics": "1.0.0",
+        "com.unity.modules.imgui": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -93,13 +95,6 @@
         "com.unity.modules.imgui": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
       },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.textcore": {
-      "version": "1.0.0-preview.3",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
@@ -131,23 +126,6 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
-    },
-    "com.unity.ui": {
-      "version": "1.0.0-preview.18",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.modules.uielementsnative": "1.0.0",
-        "com.unity.textcore": "1.0.0-preview.3"
-      },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.ui.builder": {
-      "version": "1.0.0-preview.18",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
     },
     "com.unity.visualscripting": {
       "version": "1.7.6",

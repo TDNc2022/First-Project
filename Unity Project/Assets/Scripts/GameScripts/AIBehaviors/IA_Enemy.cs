@@ -30,8 +30,7 @@ namespace FirstProject
             NavA.stoppingDistance = 2f;
         }
         void EnemyAttack(){
-
+            PlayerController.Instance.CharBody.TakeDamage(EnemyCharBody.Damage);
         }
-
     }
 }

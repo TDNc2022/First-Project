@@ -48,12 +48,14 @@ namespace FirstProject{
             currentHP = player.GetComponent<CharBody>().CurrentHealth;
             currentWave = GetComponent<WaveManager>()._currentWave;
             currentState = GetComponent<WaveManager>()._currentState;
+            remaningEnemies = WaveManager.Instance.currentEnemies.Count;
 
         }
         private void HUDInfo(){
             HP(); //setter & getter de hp
             Wave();
             Timer();
+            Enemies();
         }
         private void HP(){
             hpOverlay.style.width = new StyleLength(Length.Percent(HPPercentage(currentHP, maxHP)));
@@ -82,5 +84,17 @@ namespace FirstProject{
             
             timer.text = minutes+":"+seconds;
         }
-}
+        private void Enemies()
+        {
+            if (currentWave == "")
+            {
+                enemies.style.display = DisplayStyle.None;
+            }
+            else
+            {
+                enemies.style.display = DisplayStyle.Flex;
+                enemies.text = "Remaning enemies: "+remaningEnemies;
+            }
+        }
+    }
 }

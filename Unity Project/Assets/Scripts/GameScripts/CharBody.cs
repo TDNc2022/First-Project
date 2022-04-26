@@ -11,6 +11,8 @@ namespace FirstProject
         public float baseMaxHealth;
         public float baseDamage;
         public float baseAttackSpeed;
+        public bool hasInvul;
+        public float invulTimer;
 
         public float MovementSpeed { get; private set; }
         public float MaxHealth { get; private set; }
@@ -22,6 +24,8 @@ namespace FirstProject
 
         [HideInInspector]
         public bool statsDirty;
+        private bool _invul;
+        private float _invulTimer;
         void Start()
         {
             ChipInventory = GetComponent<ChipInventory>();
@@ -60,18 +64,37 @@ namespace FirstProject
                 statsDirty = false;
                 CalculateStats();
             }
+
+            UpdateTimer();
+        }
+
+        private void UpdateTimer()
+        {
+            if(hasInvul && _invul)
+            {
+                _invulTimer += Time.deltaTime;
+                if(_invulTimer > invulTimer)
+                {
+                    _invulTimer = 0;
+                    _invul = false;
+                }
+            }
         }
 		
         public void TakeDamage(float dmg)
         {
-            CurrentHealth -= dmg;
-            if (CurrentHealth <=0)
-                Death();
+            if(!_invul)
+            {
+                CurrentHealth -= dmg;
+                _invul = true;
+                if (CurrentHealth <=0)
+                    Death();
+            }
         }
         [ContextMenu("Kill")]
         public void Death()
         {
-            // GlobalEventManager.Instance.OnCharacterDeath(this);
+            GlobalEventManager.Instance.OnCharacterDeath(this);
             Destroy(this.gameObject);
         }
     }
