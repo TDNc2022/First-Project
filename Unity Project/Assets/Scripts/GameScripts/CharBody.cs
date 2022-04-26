@@ -71,13 +71,8 @@ namespace FirstProject
         [ContextMenu("Kill")]
         public void Death()
         {
-            GlobalEventManager.Instance.OnCharacterDeath(this);
+            // GlobalEventManager.Instance.OnCharacterDeath(this);
             Destroy(this.gameObject);
-        }
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.tag == "Bullet")
-                TakeDamage(other.GetComponent<ProjectileBehaviour>().damage);
         }
     }
 }
