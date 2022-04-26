@@ -29,11 +29,10 @@ namespace FirstProject
         {
             foreach(Transform transform in displayRoot)
             {
-                Debug.Log(transform.gameObject.name);
                 Destroy(transform.gameObject);
             }
             var instance = Instantiate(TiedChip.displayPrefab, displayRoot);
-            instance.transform.position = Vector3.zero;
+            instance.transform.localPosition = Vector3.zero;
         }
 
         private void OnCollisionEnter(Collision collision)
