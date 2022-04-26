@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 51d0521931294ef4c8e1f30cbfe1adc2, type: 2}
---- !u!1 &553055645
+--- !u!1 &556398832
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,53 +131,54 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 553055649}
-  - component: {fileID: 553055647}
-  - component: {fileID: 553055646}
-  - component: {fileID: 553055648}
-  - component: {fileID: 553055651}
-  - component: {fileID: 553055650}
+  - component: {fileID: 556398837}
+  - component: {fileID: 556398836}
+  - component: {fileID: 556398835}
+  - component: {fileID: 556398834}
+  - component: {fileID: 556398833}
   m_Layer: 0
-  m_Name: FirstProjectApplication
+  m_Name: GameManager
   m_TagString: info
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &553055646
+--- !u!114 &556398833
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553055645}
+  m_GameObject: {fileID: 556398832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 694a718b4d5b519429a8c3bf7d932386, type: 3}
+  m_Script: {fileID: 11500000, guid: f21c074d86024caca2a0034ce4f53f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GenericPickupPrefab: {fileID: 3370706095508287652, guid: 3bc965755ecea2442933dcfa1bb83e03, type: 3}
-  droppableChips:
-  - {fileID: 11400000, guid: c76d8f74632826e4c927c4e0800825e7, type: 2}
---- !u!114 &553055647
+  m_PanelSettings: {fileID: 11400000, guid: 5c5601a5f97534c4580b283db11f4495, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 86d8a0e735ffdea4cbaad1a0adbeeb00, type: 3}
+  m_SortingOrder: 0
+--- !u!114 &556398834
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553055645}
+  m_GameObject: {fileID: 556398832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5ae61299664244e99c357f7f8216bd, type: 3}
+  m_Script: {fileID: 11500000, guid: cfd90b80c4744e242a359d0b51d70e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &553055648
+  currentWave: 
+--- !u!114 &556398835
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553055645}
+  m_GameObject: {fileID: 556398832}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c506732b001a114887dd676ee914565, type: 3}
@@ -205,49 +206,35 @@ MonoBehaviour:
   state: 2
   _currentWave: 
   _currentState: 
---- !u!4 &553055649
+--- !u!114 &556398836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556398832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694a718b4d5b519429a8c3bf7d932386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GenericPickupPrefab: {fileID: 3370706095508287652, guid: 3bc965755ecea2442933dcfa1bb83e03, type: 3}
+  droppableChips:
+  - {fileID: 11400000, guid: c76d8f74632826e4c927c4e0800825e7, type: 2}
+--- !u!4 &556398837
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553055645}
+  m_GameObject: {fileID: 556398832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &553055650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553055645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f21c074d86024caca2a0034ce4f53f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: 5c5601a5f97534c4580b283db11f4495, type: 2}
-  m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 86d8a0e735ffdea4cbaad1a0adbeeb00, type: 3}
-  m_SortingOrder: 0
---- !u!114 &553055651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553055645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfd90b80c4744e242a359d0b51d70e27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWave: 
 --- !u!1 &1130951664
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,7 +583,7 @@ Transform:
   - {fileID: 1929843174}
   - {fileID: 1168867645}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 30, y: 45, z: 0}
 --- !u!114 &1597153814
 MonoBehaviour:
@@ -1229,7 +1216,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1929843171
 GameObject:
@@ -1384,7 +1371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 615209557750227899, guid: e4db871530eae384abcb9394cee16d39, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 615209557750227899, guid: e4db871530eae384abcb9394cee16d39, type: 3}
       propertyPath: m_LocalPosition.x
